@@ -81,12 +81,13 @@
     </script>
 
 <script>
-requirejs(['jquery', 'jquery.chocolat', 'jquery.overlays', 'jquery.clipboard', 'faust_common'],
-  function ($, $chocolat, $overlays, $clipboard, Faust) {
+requirejs(['jquery', 'jquery.chocolat', 'jquery.overlays', 'jquery.clipboard', 'jquery.autocomplete', 'faust_common'],
+  function ($, $chocolat, $overlays, $clipboard, $autocomplete, Faust) {
     $('main').Chocolat({className:'faustedition', loop:true});
     $('header nav').menuOverlays({highlightClass:'pure-menu-selected', onAfterShow: function() {
         $('[data-target]').copyToClipboard();
     }});
+    $('#quick-search').autocomplete({serviceUrl:'/search/autocomplete.json', groupBy:'category'});
     Faust.addToTopButton();
 });
 </script>
