@@ -90,6 +90,8 @@ requirejs(['jquery', 'jquery.chocolat', 'jquery.overlays', 'jquery.clipboard', '
     $('#quick-search').autocomplete({
         serviceUrl:'/search/autocomplete.json',
         groupBy:'category',
+        showNoSuggestionNotice: true,
+        noSuggestionNotice: "Keine Treffer",
         beforeRender: function (container) {
             var $input = $(this);
             var action = $input.closest('form').attr('action');

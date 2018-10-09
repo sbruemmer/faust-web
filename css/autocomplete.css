@@ -47,3 +47,9 @@
 .autocomplete-search {
   padding: 0.25em 0.5em 1em;
 }
+
+.autocomplete-no-suggestion {
+  padding: 0.25em 0.5em;
+  opacity: 0.5;
+  font-style: italic;
+}
