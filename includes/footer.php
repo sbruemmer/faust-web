@@ -95,7 +95,22 @@ requirejs(['jquery', 'jquery.chocolat', 'jquery.overlays', 'jquery.clipboard', '
             var action = $input.closest('form').attr('action');
             var name = $input.attr('name');
             var query = $input.val();
-            container.append('<div clas="autocomplete-search"><a href="'+action+'?'+name+'='+encodeURI(query)+'">Volltextsuche nach <strong>'+ query +'</strong></a></diV>');
+            container.append('<div class="autocomplete-search autocomplete-group"><a href="'+action+'?'+name+'='+encodeURI(query)+'">Volltextsuche nach <strong>'+ query +'</strong></a></diV>');
+        },
+        formatResult: function (suggestion, currentValue) {
+            if (!currentValue) return suggestion.value;
+
+            var current = currentValue.replace(/[|\\{}()[\]^$+*?.]/g, "\\$&"); /* escape regular expression characters */
+            var pattern = '(' + current + ')';
+
+            var result = suggestion.value
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(new RegExp(pattern, 'gi'), '<mark>$1<\/mark>');
+
+            return '<span class="autocomplete-value"><a href="'+suggestion.data.url+'">' +result + '</a></span><small class="autocomplete-info">'+ suggestion.data.info +'</small>';
         },
         onSelect: function (suggestion) {
             if (suggestion.data.url) { top.location.href = suggestion.data.url; }
