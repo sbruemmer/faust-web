@@ -39,6 +39,13 @@
   opacity: 0.5;
 }
 
+.autocomplete-suggestion .autocomplete-path {
+  display: block;
+  margin-top: 0.25em;
+  opacity: 0.5;
+  font-style: italic;
+}
+
 .autocomplete-suggestions mark {
   padding: 0;
 }

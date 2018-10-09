@@ -112,7 +112,11 @@ requirejs(['jquery', 'jquery.chocolat', 'jquery.overlays', 'jquery.clipboard', '
                 .replace(/"/g, '&quot;')
                 .replace(new RegExp(pattern, 'gi'), '<mark>$1<\/mark>');
 
-            return '<span class="autocomplete-value"><a href="'+suggestion.data.url+'">' +result + '</a></span><small class="autocomplete-info">'+ suggestion.data.info +'</small>';
+            var value = '<span class="autocomplete-value"><a href="'+suggestion.data.url+'">' +result + '</a></span>';
+            if (suggestion.data.info) value= value + '<small class="autocomplete-info">'+ suggestion.data.info +'</small>';
+            if (suggestion.data.path) value= value + '<small class="autocomplete-path">'+ suggestion.data.path +'</small>';
+
+            return value;
         },
         onSelect: function (suggestion) {
             if (suggestion.data.url) { top.location.href = suggestion.data.url; }
