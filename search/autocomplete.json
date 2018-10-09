@@ -1,7 +1,10 @@
 {"suggestions":
   [
-    { "value": "Chicago Blackhawks", "data": { "category": "NHL" } },
-    { "value": "Chicago Bulls", "data": { "category": "NBA" } }
+    { "value": "H P1 - Einzelblatt. – Prosaentwurf zu ‚Faust‘.", "data": { "category": "Sigle", "url": "/document?sigil=H_P1" } },
+    { "value": "H P3 - Zettel. – Versentwurf zu ‚Faust I‘.", "data": { "category": "Sigle", "url": "/document?sigil=H_P3" } },
+    { "value": "H P4 - Einzelblatt. – Versentwurf zu ‚Faust I‘.", "data": { "category": "Sigle", "url": "/document?sigil=H_P4" } },
+    { "value": "H P5 - Doppelblatt. – Versentwürfe zu ‚Faust I‘.", "data": { "category": "Sigle", "url": "/document?sigil=H_P5" } },
+    { "value": "689 - Als wenn im nächt’gen Wald uns Mondenglanz umweht. - Der Tragödie erster Teil > Nacht", "data": { "category": "Vers", "url": "/print/faust.4#l689" } }
   ]
 }
 

@@ -87,13 +87,20 @@ requirejs(['jquery', 'jquery.chocolat', 'jquery.overlays', 'jquery.clipboard', '
     $('header nav').menuOverlays({highlightClass:'pure-menu-selected', onAfterShow: function() {
         $('[data-target]').copyToClipboard();
     }});
-    $('#quick-search').autocomplete({serviceUrl:'/search/autocomplete.json', groupBy:'category', beforeRender: function (container) {
-        var $input = $(this);
-        var action = $input.closest('form').attr('action');
-        var name = $input.attr('name');
-        var query = $input.val();
-        container.append('<div clas="autocomplete-search"><a href="'+action+'?'+name+'='+encodeURI(query)+'">Volltextsuche nach <strong>'+ query +'</strong></a></diV>');
-    }});
+    $('#quick-search').autocomplete({
+        serviceUrl:'/search/autocomplete.json',
+        groupBy:'category',
+        beforeRender: function (container) {
+            var $input = $(this);
+            var action = $input.closest('form').attr('action');
+            var name = $input.attr('name');
+            var query = $input.val();
+            container.append('<div clas="autocomplete-search"><a href="'+action+'?'+name+'='+encodeURI(query)+'">Volltextsuche nach <strong>'+ query +'</strong></a></diV>');
+        },
+        onSelect: function (suggestion) {
+            if (suggestion.data.url) { top.location.href = suggestion.data.url; }
+        }
+    });
     Faust.addToTopButton();
 });
 </script>
